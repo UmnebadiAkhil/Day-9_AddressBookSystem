@@ -5,7 +5,7 @@ AddressBookSystem.Contact contact = new AddressBookSystem.Contact();
 bool flag = true;
 while (flag)
 {
-    Console.WriteLine("Enter your Choice Number to Execute the Address Program Press-\n 1-Contacts, \n 2-Add Contact, \n 3-Edit Contact, \n 4-Delete Contact, \n 5-Exit");
+    Console.WriteLine("Enter your Choice Number to Execute the Address Program Press-\n 1-Contacts, \n 2-Add Contact, \n 3-Edit Contact, \n 4-Delete Contact, \n 5-AddMultiplePerson,\n 6-UniqueName, \n 7-Exit");
     int choice = Convert.ToInt32(Console.ReadLine());
     switch (choice)
     {
@@ -52,6 +52,29 @@ while (flag)
             abb.Display();
             break;
         case 5:
+            Console.WriteLine("Enter the Contact Information to be Add in form of FirstName, LastName, Addr, City, State, Zip, Ph.No, Email.");
+            Console.WriteLine("Enter the Contact to be Add: ");
+            AddressBookSystem.Contact con = new AddressBookSystem.Contact();
+            AddressBookSystem.AddressBook abo = new AddressBookSystem.AddressBook();
+            abo.AddContact(con);
+            con.FirstName = Console.ReadLine();
+            con.LastName = Console.ReadLine();
+            con.Address = Console.ReadLine();
+            con.City = Console.ReadLine();
+            con.State = Console.ReadLine();
+            con.Zip = Console.ReadLine();
+            con.PhoneNumber = Console.ReadLine();
+            con.Email = Console.ReadLine();
+            abo.Display();
+            break;
+        case 6:
+            Console.WriteLine("Enter the Unique Contact to be added: ");
+            string nam = Console.ReadLine();
+            AddressBookSystem.AddressBook aboo = new AddressBookSystem.AddressBook();
+            aboo.AddUniqueContact(nam);
+            aboo.DisplayUniqueContacts();
+            break;
+        case 7:
             flag = false;
             break;
     }
